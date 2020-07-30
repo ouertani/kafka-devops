@@ -1,0 +1,13 @@
+apiVersion: kudo.dev/v1beta1
+kudoVersion: 0.15.0
+operatorVersion: 0.1.0
+kubernetesVersion: 1.18.2
+name: ccloud
+tasks:
+plans:
+  deploy:
+    strategy: serial
+    phases:
+      - name: environment 
+        strategy: serial
+        steps:

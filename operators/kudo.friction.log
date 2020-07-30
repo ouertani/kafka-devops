@@ -1,0 +1,4 @@
+
+* I'm stuck at the initial design phase for my use case.  Currently, I want to build an operator for cloud managed resources.  If the resources have many parts, some dependent, some not.  How do I lay out my operator design Plans & Tasks?  Asked on slack: https://kubernetes.slack.com/archives/CG3HTFCMV/p1596039114209400.  For cloud based resources, maybe a batch job is the best thing as applying something to the cluster is not really the goal.
+
+* 
