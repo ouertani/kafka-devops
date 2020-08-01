@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metdata:
+  name: kafka-connectors-post
+spec:
+  template:
+    spec:
+      containers:
+      - name: kafka-connectors-post
+        image: 
+        command: [ ]
+      restartPolicy: Never
+  backoffLimit: 10
+

@@ -1,0 +1,41 @@
+apiVersion: kudo.dev/v1beta1
+name: kafka-connectors
+operatorVersion: 0.0.1
+kudoVersion: 0.15.0
+kubernetesVersion: 1.18.0
+maintainers:
+  - name: Rick Spurgeon
+    email: rspurgeon@confluent.io
+tasks:
+  - name: post
+    kind: Apply
+    spec:
+      resources:
+        - config.yaml
+        - post.yaml
+  - name: delete
+    kind: Apply
+    spec:
+      resources:
+        - config.yaml
+        - delete.yaml
+plans:
+  deploy:
+    strategy: serial
+    phases:
+      - name: deploy-connector
+        strategy: serial
+        steps:
+          - name: deploy
+            tasks:
+              - post
+  cleanup:
+    strategy: serial
+    phases:
+      - name: delete
+        strategy: serial
+        steps:
+          - name: delete
+            tasks:
+              - delete
+
